@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text, StyleSheet, Image} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
 import PropTypes from 'prop-types'
 
 class Game extends React.Component {
@@ -34,11 +34,20 @@ const styles = StyleSheet.create({
     },
     header: {
         margin: 20,
+        borderWidth: 4,
+        borderRadius: 4,
+        borderColor: '#a79086',
+        borderBottomWidth: 5,
+        shadowColor: '#a79086',
+        shadowOffset: { width: 2, height: 2 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 1,
         fontSize: 30,
         textAlign: 'center',
         backgroundColor: '#6d031c',
         color: '#d2d2c9',
-        padding: 25,
+        padding: 15,
     },
     target: {
         fontSize: 50,
