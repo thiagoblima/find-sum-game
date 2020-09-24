@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#673e37',
         color: '#d2d2c9',
         margin: 50,
+        borderRadius: 10,
         textAlign: 'center'
     },
     randomContainer: {
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#a79086',
         color: '#d2d2c9',
         fontSize: 35,
+        borderRadius: 10,   
         width: 100,
         height: 100,
         lineHeight: 100,

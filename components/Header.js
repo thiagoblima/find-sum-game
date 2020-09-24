@@ -15,12 +15,12 @@ class Header extends React.Component {
 const styles = StyleSheet.create({
     header: {
         margin: 20,
-        borderWidth: 4,
-        borderRadius: 4,
+        borderRadius: 50,
+        borderWidth: 12,
         borderColor: '#a79086',
-        borderBottomWidth: 5,
+        borderBottomWidth: 12,
         shadowColor: '#a79086',
-        shadowOffset: { width: 2, height: 2 },
+        shadowOffset: { width: 1, height: 1 },
         shadowOpacity: 0.8,
         shadowRadius: 2,
         elevation: 1,
