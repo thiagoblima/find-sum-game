@@ -6,7 +6,7 @@ class Header extends React.Component {
     render() {
         return (
             <View>
-               <Text style={styles.header}> {this.props.messageTarget}  </Text>
+               <Text style={styles.header}> {this.props.messageTarget} </Text>
             </View>
         )
     }
