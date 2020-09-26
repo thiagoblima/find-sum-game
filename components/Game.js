@@ -29,9 +29,9 @@ class Game extends React.Component {
                     {this.randomNumbers.map((randomNumber, i) =>
                         <RandomNumber
                             key={i}
-                            number={randomNumber} 
+                            number={randomNumber}
                             isSelected={this.isNumberSelected(i)}
-                            />
+                        />
                     )}
                 </View>
             </View>
