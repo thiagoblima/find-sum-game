@@ -9,7 +9,7 @@ class Game extends React.Component {
         randomNumberCount: PropTypes.number.isRequired
     }
     state = {
-        selectedNumbers: [0, 3]
+        selectedNumbers: []
     }
     randomNumbers = Array
         .from({length: this.props.randomNumberCount})
@@ -20,6 +20,10 @@ class Game extends React.Component {
     isNumberSelected = (numberIndex) => {
         return this.state.selectedNumbers.indexOf(numberIndex) >= 0
     }
+    selectNumber = (numberIndex) => {
+        this.setState((prevState) => ({ selectedNumbers: [...prevState.selectedNumbers, numberIndex] }))
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -29,8 +33,10 @@ class Game extends React.Component {
                     {this.randomNumbers.map((randomNumber, i) =>
                         <RandomNumber
                             key={i}
+                            id={i}
                             number={randomNumber}
-                            isSelected={this.isNumberSelected(i)}
+                            isDisabled={this.isNumberSelected(i)}
+                            onPress={this.selectNumber}
                         />
                     )}
                 </View>
