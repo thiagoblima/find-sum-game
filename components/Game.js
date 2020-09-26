@@ -2,6 +2,7 @@ import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import PropTypes from 'prop-types'
 import Header from './Header'
+import RandomNumber from './RandomNumber'
 
 class Game extends React.Component {
     static propTypes = {
@@ -16,11 +17,11 @@ class Game extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header messageTarget={'Target Sum Game'}/>
+                <Header messageTarget={'Target Sum Game'} />
                 <Text style={styles.target}>{this.target}</Text>
                 <View style={styles.randomContainer}>
                     {this.randomNumbers.map((randomNumber, i) =>
-                        <Text style={styles.random} key={i}> {randomNumber}</Text>
+                        <RandomNumber key={i} number={randomNumber} />
                     )}
                 </View>
             </View>
@@ -46,18 +47,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-around'
-    },
-    random: {
-        backgroundColor: '#a79086',
-        color: '#d2d2c9',
-        fontSize: 35,
-        borderRadius: 10,   
-        width: 100,
-        height: 100,
-        lineHeight: 100,
-        marginHorizontal: 15,
-        marginVertical: 35,
-        textAlign: 'center'
     }
 })
 
