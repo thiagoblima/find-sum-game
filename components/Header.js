@@ -15,7 +15,7 @@ class Header extends React.Component {
 const styles = StyleSheet.create({
     header: {
         margin: 20,
-        borderRadius: 50,
+        borderRadius: 30,
         borderWidth: 12,
         overflow: 'hidden',
         borderColor: '#a79086',

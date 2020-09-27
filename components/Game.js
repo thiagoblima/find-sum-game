@@ -23,8 +23,23 @@
         selectNumber = (numberIndex) => {
             this.setState((prevState) => ({ selectedIds: [...prevState.selectedIds, numberIndex] }))
         }
+        gameStatus = () => {
+            const sumSelected = this.state.selectedIds.reduce((acc, curr) => {
+                   return acc + this.randomNumbers[curr]
+            }, 0)
+            if (sumSelected < this.target) {
+                return 'PLAYING'
+            }
+            if (sumSelected === this.target) {
+                return 'WON'
+            }
+            if (sumSelected > this.target) {
+                return 'LOST'
+            }
+        }
 
         render() {
+            const gameStatus = this.gameStatus()
             return (
                 <View style={styles.container}>
                     <Header messageTarget={'Target Sum Game'} />
@@ -40,6 +55,7 @@
                             />
                         )}
                     </View>
+                    <Text>{gameStatus}</Text>
                 </View>
             );
         }
