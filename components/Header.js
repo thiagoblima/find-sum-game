@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         margin: 20,
         borderRadius: 50,
         borderWidth: 12,
+        overflow: 'hidden',
         borderColor: '#a79086',
         borderBottomWidth: 12,
         shadowColor: '#a79086',
@@ -28,7 +29,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         backgroundColor: '#6d031c',
         color: '#d2d2c9',
-        padding: 15,
+        paddingTop: 15,
+        paddingBottom: 15,
     }
 })
 
