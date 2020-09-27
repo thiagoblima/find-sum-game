@@ -21,7 +21,7 @@ class Game extends React.Component {
         return this.state.selectedIds.indexOf(numberIndex) >= 0
     }
     selectNumber = (numberIndex) => {
-        this.setState((prevState) => ({ selectedIds: [...prevState.selectedNumbers, numberIndex] }))
+        this.setState((prevState) => ({ selectedIds: [...prevState.selectedIds, numberIndex] }))
     }
 
     render() {
