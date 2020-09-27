@@ -6,10 +6,12 @@ import RandomNumber from './RandomNumber'
 
 class Game extends React.Component {
     static propTypes = {
-        randomNumberCount: PropTypes.number.isRequired
+        randomNumberCount: PropTypes.number.isRequired,
+        initialSeconds: PropTypes.number.isRequired
     }
     state = {
-        selectedIds: []
+        selectedIds: [],
+        remainingSeconds: this.props.initialSeconds
     }
     randomNumbers = Array
         .from({length: this.props.randomNumberCount})
@@ -20,6 +22,22 @@ class Game extends React.Component {
     isNumberSelected = (numberIndex) => {
         return this.state.selectedIds.indexOf(numberIndex) >= 0
     }
+    componentDidMount() {
+      this.intervalId = setInterval(() => {
+            this.setState((prevState) => {
+                return {
+                    remainingSeconds: prevState.remainingSeconds - 1
+                }
+            }, () => {  
+                if (this.state.remainingSeconds === 0) {
+                    clearInterval(this.intervalId)
+                }
+            })  
+        }, 1000)
+    }
+    componentWillUnmount() {
+        clearInterval(this.intervalId)
+    }
     selectNumber = (numberIndex) => {
         this.setState((prevState) => ({selectedIds: [...prevState.selectedIds, numberIndex]}))
     }
@@ -27,6 +45,9 @@ class Game extends React.Component {
         const sumSelected = this.state.selectedIds.reduce((acc, curr) => {
             return acc + this.randomNumbers[curr]
         }, 0)
+        if (this.state.remainingSeconds === 0) {
+            return 'LOST'
+        }
         if (sumSelected < this.target) {
             return 'PLAYING'
         }
@@ -57,7 +78,7 @@ class Game extends React.Component {
                         />
                     )}
                 </View>
-                <Text>{gameStatus}</Text>
+                <Text>{this.state.remainingSeconds}</Text>
             </View>
         );
     }
@@ -90,6 +111,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     STATUS_PLAYING: {
+        transition: '200ms ease-out',
         margin: 50,
         borderRadius: 10,
         fontSize: 50,
@@ -105,6 +127,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#673e37'
     },
     STATUS_WON: {
+        transition: '200ms ease-out',
         margin: 50,
         borderRadius: 10,
         fontSize: 50,
@@ -120,6 +143,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#927D4E'
     },
     STATUS_LOST: {
+        transition: '200ms ease-out',
         margin: 50,
         borderRadius: 10,
         fontSize: 50,
@@ -133,7 +157,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         textAlign: 'center',
         backgroundColor: '#6d031c'
-        
+
     }
 })
 
