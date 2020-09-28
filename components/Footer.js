@@ -10,7 +10,7 @@ const StyledView = styled.View`
 `
 
 const StyledText = styled.Text`
-    color:#a79086 ;
+    color:#a79086;
     background-color:#d2d2c9 ;
     border-radius: 50%;
     align-self: center;
@@ -24,7 +24,7 @@ class Footer extends React.Component {
     render() {
         return (
             <StyledView>
-               <StyledText> {this.props.remainingSeconds} </StyledText>
+                <StyledText> {this.props.remainingSeconds} </StyledText>
             </StyledView>
         )
     }
