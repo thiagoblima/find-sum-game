@@ -1,40 +1,37 @@
 import React from 'react'
-import {View} from 'react-native'
-import styled from 'styled-components/native'
-
-const StyledHeader = styled.Text`
-    transition: 500ms ease-in-out;
-    border-radius: 10%;
-    border-color: #a79086;
-    border-width: 12px,
-    border-bottom: 12px
-    shadow-color: #a79086;
-    shadow-offset:  8px;
-    shadow-opacity: 0.7;
-    shadow-radius: 2;
-    elevation: 1;
-    font-size: 30px;
-    text-align: center;
-    background-color: #6d031c;
-    color: #d2d2c9;
-    margin: 20px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    overflow: hidden;
-`
+import {View, Text, StyleSheet} from 'react-native'
 
 class Header extends React.Component {
     messageTarget = ''
     render() {
         return (
             <View>
-                <StyledHeader> {this.props.messageTarget} </StyledHeader>
+               <Text style={styles.header}> {this.props.messageTarget} </Text>
             </View>
         )
     }
-    componentDidMount() {
-        StyledHeader
-    }
 }
+
+const styles = StyleSheet.create({
+    header: {
+        margin: 20,
+        borderRadius: 50,
+        borderWidth: 12,
+        overflow: 'hidden',
+        borderColor: '#a79086',
+        borderBottomWidth: 12,
+        shadowColor: '#a79086',
+        shadowOffset: { width: 1, height: 1 },
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        elevation: 1,
+        fontSize: 30,
+        textAlign: 'center',
+        backgroundColor: '#6d031c',
+        color: '#d2d2c9',
+        paddingTop: 15,
+        paddingBottom: 15,
+    }
+})
 
 export default Header

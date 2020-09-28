@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/native'
 
 const StyledView = styled.View`
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
     opacity: 0.5;
@@ -15,7 +15,7 @@ const StyledText = styled.Text`
     border-radius: 50%;
     align-self: center;
     font-size: 32px;
-    border-radius: 80;
+    border-radius: 810px;
 `
 
 

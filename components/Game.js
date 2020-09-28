@@ -53,6 +53,7 @@ class Game extends React.Component {
             return 'PLAYING'
         }
         if (sumSelected === this.target) {
+            clearInterval(this.intervalId)
             return 'WON'
         }
         if (sumSelected > this.target) {
@@ -65,7 +66,7 @@ class Game extends React.Component {
         return (
             <View style={styles.container}>
                 <Header messageTarget={'Target Sum Game'} />
-                <Text style={[styles.target], styles[`STATUS_${gameStatus}`]}>
+                <Text style={styles[`STATUS_${gameStatus}`]}>
                     {this.target}
                 </Text>
                 <View style={styles.randomContainer}>
@@ -91,21 +92,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#d2d2c9',
         flex: 1,
     },
-    target: {
-        margin: 50,
-        borderRadius: 10,
-        fontSize: 50,
-        borderWidth: 4,
-        borderColor: '#a79086',
-        color: '#d2d2c9',
-        shadowColor: '#a79086',
-        shadowOffset: {width: 1, height: 1},
-        shadowOpacity: 0.8,
-        shadowRadius: 2,
-        overflow: 'hidden',
-        backgroundColor: '#673e37',
-        textAlign: 'center'
-    },
     randomContainer: {
         flex: 1,
         flexDirection: 'row',
@@ -113,7 +99,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around'
     },
     STATUS_PLAYING: {
-        transition: '200ms ease-out',
         margin: 50,
         borderRadius: 10,
         fontSize: 50,
@@ -129,7 +114,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#673e37'
     },
     STATUS_WON: {
-        transition: '200ms ease-out',
         margin: 50,
         borderRadius: 10,
         fontSize: 50,
@@ -145,7 +129,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#927D4E'
     },
     STATUS_LOST: {
-        transition: '200ms ease-out',
         margin: 50,
         borderRadius: 10,
         fontSize: 50,
