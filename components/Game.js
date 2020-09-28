@@ -2,6 +2,7 @@ import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import PropTypes from 'prop-types'
 import Header from './Header'
+import Footer from './Footer'
 import RandomNumber from './RandomNumber'
 
 class Game extends React.Component {
@@ -79,6 +80,7 @@ class Game extends React.Component {
                     )}
                 </View>
                 <Text>{this.state.remainingSeconds}</Text>
+                <Footer remainingSeconds={this.state.remainingSeconds}/>
             </View>
         );
     }
