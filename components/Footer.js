@@ -15,7 +15,7 @@ const StyledText = styled.Text`
     border-radius: 50%;
     align-self: center;
     font-size: 32px;
-    border-radius: 810px;
+    border-radius: 100%;
 `
 
 
